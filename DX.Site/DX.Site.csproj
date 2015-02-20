@@ -86,7 +86,9 @@
     <Reference Include="DevExpress.Web.ASPxSpreadsheet.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\custom.css" />
+    <Content Include="css\custom.css">
+      <DependentUpon>custom.less</DependentUpon>
+    </Content>
     <Content Include="css\normalize.css" />
     <Content Include="css\skeleton.css" />
     <Content Include="Global.asax" />
@@ -99,8 +101,10 @@
     <Content Include="images\values-bg.jpg" />
     <Content Include="Web.config" />
     <Content Include="Site.Master" />
-    <Content Include="css\custom.css.map" />
     <Content Include="css\custom.less" />
+    <Content Include="css\custom.css.map">
+      <DependentUpon>custom.css</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
