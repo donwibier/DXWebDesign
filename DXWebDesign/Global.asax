@@ -1,1 +1,0 @@
-<%@ Application Codebehind="Global.asax.vb" Inherits="DXWebDesign.Global_asax" Language="VB" %>
