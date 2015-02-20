@@ -86,11 +86,21 @@
     <Reference Include="DevExpress.Web.ASPxSpreadsheet.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\custom.css" />
+    <Content Include="css\normalize.css" />
+    <Content Include="css\skeleton.css" />
     <Content Include="Global.asax" />
+    <Content Include="Default.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\favicon.png" />
+    <Content Include="images\iphone.png" />
+    <Content Include="images\placeholder.png" />
+    <Content Include="images\values-bg.jpg" />
     <Content Include="Web.config" />
     <Content Include="Site.Master" />
+    <Content Include="css\custom.css.map" />
+    <Content Include="css\custom.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -108,6 +118,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

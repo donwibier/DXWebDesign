@@ -1,20 +1,32 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="DX.Site.Site" %>
 
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="HeadPlaceHolder" runat="server">
-    </asp:ContentPlaceHolder>
+	 <%-- Basic Page Needs --%>
+	 <meta charset="utf-8">
+	 <title>Your page title here :)</title>
+	 <meta runat="server" name="description" content="">
+	 <meta runat="server" name="author" content="">
+	 <%-- Mobile Specific Metas --%>
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <%-- FONT --%>
+	 <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+	 <%--  CSS --%>
+	 <link runat="server" rel="stylesheet" href="~/css/normalize.css">
+	 <link runat="server" rel="stylesheet" href="~/css/skeleton.css">
+	 <link runat="server" rel="stylesheet" href="~/css/custom.css">
+	 <%-- Favicon --%>
+	 <link runat="server" rel="icon" type="image/png" href="~/images/favicon.png">
+
+	 <asp:ContentPlaceHolder ID="HeadContentPlaceHolder" runat="server">
+	 </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+	 <form id="frm" runat="server">
+		  <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+		  </asp:ContentPlaceHolder>
+
 		  <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server">
 		  </asp:ContentPlaceHolder>
 	 </form>

@@ -13,22 +13,22 @@ namespace DX.Site {
     public partial class Site {
         
         /// <summary>
-        /// HeadPlaceHolder control.
+        /// HeadContentPlaceHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadPlaceHolder;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContentPlaceHolder;
         
         /// <summary>
-        /// form1 control.
+        /// frm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frm;
         
         /// <summary>
         /// ContentPlaceHolder control.
