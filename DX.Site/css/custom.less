@@ -1,143 +1,209 @@
-﻿/* Shared
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.button {
-  border-radius: 100px;
+﻿@navigationTextColor:#fcfcfc;
+@navigationBackground: #343434;
+
+/*.navigation {
+	 padding: 4px 4px 4px 4px;
+	 background-color: @navigationBackground;
+	 color:@navigationTextColor;
+	 span {
+		  color:@navigationTextColor;
+	 }
+}*/
+.widgetContainer{
+	 h3 {
+		  font-size: 2.0rem;
+	 }
 }
-/* Sections
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.section {
-  padding: 8rem 0 7rem;
-  text-align: center;
+
+/* Logo */
+@logoMain: "../images/logo.svg";
+@logoFallback: "../images/logo.png";
+@logoWidth: 228;
+@logoHeight: 41;
+
+.header{
+	  h1.logo {
+				margin: 7px 0 0 0;
+				float: left;
+
+				a {
+					 width: unit(@logoWidth, px);
+					 height: unit(@logoHeight, px);
+					 display: block;
+					 background: url(@logoMain) no-repeat 0 0;
+					 background-size: unit(@logoWidth, px) unit(@logoHeight, px);
+					 font: 0/0 a;
+					 text-shadow: none;
+					 color: transparent;
+				}
+		  }
+ }
+.no-svg {
+    .header h1.logo a {
+        background-image: url(@logoFallback);
+    }
 }
-.section-heading,
-.section-description {
-  margin-bottom: 1.2rem;
+
+/*Footer on bottom */
+
+@footerHeight: 50px;
+
+html, body {
+    height: 100%;
 }
-/* Hero
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.phones {
-  position: relative;
+form {
+    position: relative;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
 }
-.phone {
-  position: relative;
-  max-width: 80%;
-  margin: 3rem auto -12rem;
+.page {
+    min-height: 100%;
+    padding-bottom: @footerHeight;
+	 overflow: hidden;	 
+    transition: margin-left 500ms ease;
 }
-.phone + .phone {
-  display: none;
+
+.content {
+
+    min-height: 100%;
+    height: 100%;
 }
-/* Values
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.values {
-  background-image: url('../images/values-bg.jpg');
-  background-size: cover;
-  color: #fff;
-  padding-bottom: 5rem;
-}
-.value-multiplier {
-  margin-bottom: .5rem;
-  color: #11DFC7;
-}
-.value-heading {
-  margin-bottom: .3rem;
-}
-.value-description {
-  opacity: .8;
-  font-weight: 300;
-}
-/* Help
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.get-help {
-  border-bottom: 1px solid #ddd;
-}
-/* Categories
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.categories {
-  background-image: url('../images/values-bg.jpg');
-  background-size: cover;
-  color: #fff;
-}
-.categories .section-description {
-  margin-bottom: 4rem;
-}
-/* Bigger than 550 */
-@media (min-width: 550px) {
-  .section {
-    padding: 12rem 0 11rem;
-  }
-  .hero {
-    padding-bottom: 12rem;
-    text-align: left;
-    height: 165px;
-  }
-  .phone {
+
+.footer {
+	 background-color: @navigationBackground;
+	 color:@navigationTextColor;
     position: absolute;
-    top: -7rem;
-    right: 3rem;
-    max-height: 362px;
-    z-index: 3;
-  }
-  .phone + .phone {
-    top: -6rem;
-    display: block;
-    max-width: 73.8%;
-    right: 0;
-    z-index: 2;
-    max-height: 338px;
-  }
-  .hero-heading {
-    font-size: 2.4rem;
-  }
+    width: 100%;
+    bottom: 0;
+    height: @footerHeight;
 }
-/* Bigger than 750 */
+
+/*Side menu*/
+
+.side-menu {
+	 position: absolute;
+	 width: 0;
+	 z-index:10;
+	 min-height: 100vh;
+	 height: 100%;
+	 background-color:@navigationBackground;
+	 overflow:hidden;
+    top: 0;
+    left: 0;
+    transition: width 500ms ease;
+}
+
+.show-menu {
+	 .side-menu {
+		  width: 270px;
+	 }
+	 .page {
+		  margin-left: 280px;
+		  padding-left: 5px;
+		  padding-right:-280px;
+		  overflow:hidden;
+	 }	 
+}
+
+.navigation {
+	 padding: 4px 4px 4px 4px;
+	 background-color: @navigationBackground;
+	 color:@navigationTextColor;
+	 span {
+		  color:@navigationTextColor;
+	 }
+	 .normal {
+		  p {
+				font-size:11px;
+				margin-top:5px;
+				margin-bottom: 13px;
+				line-height: 12px;
+		  }
+	 }
+	 .compact {
+		  display:none!important;
+		  .compact-menu-container{
+				float:left; 				
+				.compact-menu,
+				.compact-menu:hover
+				{
+					 text-decoration: none;
+					 border: none;
+					 background: @navigationBackground;
+					 color: #fcfcfc !important;
+					 font-size: 12px;
+				}
+		  }
+	 }
+}
+/* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: The best way to structure the use of media queries is to create the queries
+near the relevant code. For example, if you wanted to change the styles for buttons
+on small devices, paste the mobile query code up in the buttons section and style it
+there.
+*/
+
+.scaleLogo(@scaleFactor) {
+    @scaledLogoWidth: unit(floor(@logoWidth*@scaleFactor), px);
+    @scaledLogoHeight: unit(floor(@logoHeight*@scaleFactor), px);
+}
+
+/* Larger than mobile */
+@media (max-width: 749px) {
+	 .navigation {
+		  .normal { display:none!important; }
+		  .compact { display:inline!important; }
+		  
+	 }
+	 .header{
+		  .logo{
+				float:right;
+		  
+				h1.logo a {
+					 .scaleLogo(0.7);
+					 width: @scaledLogoWidth;
+					 height: @scaledLogoHeight;
+					 background-size: @scaledLogoWidth @scaledLogoHeight;
+				
+				}
+		  }
+	 }
+
+}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+}
+
+/* Larger than tablet */
 @media (min-width: 750px) {
-  .hero {
-    height: 190px;
-  }
-  .hero-heading {
-    font-size: 2.6rem;
-  }
-  .section {
-    padding: 14rem 0 15rem;
-  }
-  .hero {
-    padding: 16rem 0 14rem;
-  }
-  .section-description {
-    max-width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .phone {
-    top: -14rem;
-    right: 5rem;
-    max-height: 510px;
-  }
-  .phone + .phone {
-    top: -12rem;
-    max-height: 472px;
-  }
-  .categories {
-    padding: 15rem 0 8rem;
-  }
+	 .navigation {
+		  .normal { display:inline!important; }
+		  .compact { display:none!important; }
+	 }
+	 .page{
+		  padding-bottom: 0;
+	 }
+	 .footer{
+		  display: none;
+	 }
+	 /*.navigation {
+		  display:none;
+	 }*/
+	 .no-mobile {
+		  display: none!important;
+	 }
 }
-/* Bigger than 1000 */
+
+/* Larger than desktop */
 @media (min-width: 1000px) {
-  .section {
-    padding: 20rem 0 19rem;
-  }
-  .hero {
-    padding: 22rem 0;
-  }
-  .hero-heading {
-    font-size: 3.0rem;
-  }
-  .phone {
-    top: -16rem;
-    max-height: 615px;
-  }
-  .phone + .phone {
-    top: -14rem;
-    max-height: 570px;
-  }
+
 }
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
+
+

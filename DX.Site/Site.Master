@@ -3,30 +3,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
-	 <%-- Basic Page Needs --%>
+	 <%-- Basic Page Needs   --%>
 	 <meta charset="utf-8">
 	 <title>Your page title here :)</title>
-	 <meta runat="server" name="description" content="">
-	 <meta runat="server" name="author" content="">
-	 <%-- Mobile Specific Metas --%>
+	 <meta name="description" content="">
+	 <meta name="author" content="">
+	 <%-- Mobile Specific Metas   --%>
 	 <meta name="viewport" content="width=device-width, initial-scale=1">
-	 <%-- FONT --%>
+	 <%-- FONT   --%>
 	 <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-	 <%--  CSS --%>
-	 <link runat="server" rel="stylesheet" href="~/css/normalize.css">
-	 <link runat="server" rel="stylesheet" href="~/css/skeleton.css">
-	 <link runat="server" rel="stylesheet" href="~/css/custom.css">
-	 <%-- Favicon --%>
-	 <link runat="server" rel="icon" type="image/png" href="~/images/favicon.png">
-
+	 <%-- CSS   --%>
+	 <link rel="stylesheet" href="/css/normalize.css">
+	 <link rel="stylesheet" href="/css/skeleton.css">
+	 <link rel="stylesheet" href="/css/icons.css">
+	 <link rel="stylesheet" href="/css/custom.css">
+	 <%-- Favicon   --%>
+	 <link rel="icon" type="image/png" href="images/favicon.png">	 
 	 <asp:ContentPlaceHolder ID="HeadContentPlaceHolder" runat="server">
 	 </asp:ContentPlaceHolder>
 </head>
 <body>
 	 <form id="frm" runat="server">
-		  <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
-		  </asp:ContentPlaceHolder>
+		  <div class="side-menu" style="color: #fcfcfc;">
+				<span class="icon-home" style="margin-right: 4px"></span>Home<br />
 
+		  </div>
+
+		  <div class="page" id="pageContainer">
+				<%-- Primary Page Layout   --%>
+				<div class="section header">
+					 <div class="container">
+						  <div class="row">
+								<div class="twelve columns">
+									 <div class="logo">
+										  <h1 class="logo"><a runat="server" href="~/">DevExpress</a></h1>
+										  <a class="banner" href="#"></a>
+									 </div>
+								</div>
+						  </div>
+					 </div>
+				</div>
+				<div class="section navigation">
+					 <div class="container">
+						  <div class="row">
+								<div class="twelve columns normal">
+									 <span class="icon-home" style="margin-right: 4px;"></span>Menu
+								</div>
+
+								<div class="twelve columns compact">
+									 <div class="compact-menu-container">
+										  <a id="compactMenu" href="#" class="compact-menu">
+												<span class="icon-menu"></span>
+										  </a>
+									 </div>
+								</div>
+						  </div>
+					 </div>
+				</div>
+				<asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+					 <div class="section content">
+						  <div class="container">
+								<div class="row">
+									 <div class="one-third column">
+										  <h3>About Skeleton?</h3>
+										  <p>Skeleton is a small collection of well-organized CSS files that can help you rapidly develop sites that look beautiful at any size, be it a 17" laptop screen or an iPhone. It's based on a responsive grid, but also provides very basic CSS for typography, buttons, forms and media queries. Go ahead, resize this super basic page to see the grid in action.</p>
+									 </div>
+									 <div class="one-third column">
+										  <h3>Three Core Principles</h3>
+										  <p>Skeleton is built on three core principles:</p>
+										  <ul class="square">
+												<li><strong>A Responsive Grid Down To Mobile</strong>: Elegant scaling from a browser to tablets to mobile.</li>
+												<li><strong>Fast to Start</strong>: It's a tool for rapid development with best practices</li>
+												<li><strong>Style Agnostic</strong>: It provides the most basic, beautiful styles, but is meant to be overwritten.</li>
+										  </ul>
+									 </div>
+									 <div class="one-third column">
+										  <h3>Docs &amp; Support</h3>
+										  <p>The easiest way to really get started with Skeleton is to check out the full docs and info at <a href="http://www.getskeleton.com">www.getskeleton.com.</a>. Skeleton is also open-source and has a <a href="https://github.com/dhgamache/skeleton">project on git</a>, so check that out if you want to report bugs or create a pull request. If you have any questions, thoughts, concerns or feedback, please don't hesitate to email me at <a href="mailto:hi@getskeleton.com">hi@getskeleton.com</a>.</p>
+									 </div>
+								</div>
+						  </div>
+					 </div>
+				</asp:ContentPlaceHolder>
+		  </div>
+		  <div class="section footer">
+				<div class="container">
+					 <div class="row">
+						  <div class="twelve columns">
+								&copy DevExpress 2015
+						  </div>
+					 </div>
+				</div>
+		  </div>
+
+		  <script src="/Scripts/modernizr-2.8.3.js"></script>
+		  <script src="/Scripts/jquery-2.1.3.js"></script>
+		  <script src="/Scripts/DXSiteTools.js"></script>
 		  <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server">
 		  </asp:ContentPlaceHolder>
 	 </form>
