@@ -90,8 +90,6 @@
     <Content Include="css\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="css\fonts\icomoon.svg" />
     <Content Include="css\icons.css" />
-    <Content Include="css\ie7\ie7.css" />
-    <Content Include="css\ie7\ie7.js" />
     <Content Include="css\normalize.css" />
     <Content Include="css\custom.css">
       <DependentUpon>custom.less</DependentUpon>

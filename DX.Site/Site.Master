@@ -18,12 +18,6 @@
 	 <link rel="stylesheet" href="/css/normalize.css">
 	 <link rel="stylesheet" href="/css/skeleton.css">
 	 <link rel="stylesheet" href="/css/icons.css">
-	 <!--[if lt IE 9]>		  
-		  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	 <![endif]-->
-	 <!--[if lt IE 8]><!-->
-	 <link rel="stylesheet" href="/css/ie7/ie7.css">
-	 <!--<![endif]-->
 	 <link rel="stylesheet" href="/css/custom.css">
 	 <%-- Favicon   --%>
 	 <link rel="icon" type="image/png" href="images/favicon.png">
