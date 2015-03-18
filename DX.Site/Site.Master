@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="DX.Site.Site" %>
 
+<%-- This responsive SkeletonCSS Based template is compatible with IE9 and up (plus FF, Chrome, Safari) --%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
@@ -16,8 +18,11 @@
 	 <link rel="stylesheet" href="/css/normalize.css">
 	 <link rel="stylesheet" href="/css/skeleton.css">
 	 <link rel="stylesheet" href="/css/icons.css">
+	 <!--[if lt IE 9]>		  
+		  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	 <![endif]-->
 	 <!--[if lt IE 8]><!-->
-	 <link rel="stylesheet" href="ie7/ie7.css">
+	 <link rel="stylesheet" href="/css/ie7/ie7.css">
 	 <!--<![endif]-->
 	 <link rel="stylesheet" href="/css/custom.css">
 	 <%-- Favicon   --%>
