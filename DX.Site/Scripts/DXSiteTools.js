@@ -1,14 +1,31 @@
-﻿(function () {
+﻿/// <reference path="ASPxScriptIntelliSense.js" />
+/// <reference path="jquery-2.1.3.intellisense.js" />
+
+$(function () {
 	 "use strict";
-	 
-	 $("#compactMenu").click(function () {
-	 	  if ($('body').hasClass('show-menu')) {
-	 	 	 	$('body').removeClass('show-menu');
-	 	  }
-	 	  else {
-	 	 	 	$('body').addClass('show-menu');
-	 	  }
+	
+	 $("*[data-navigate-action]").each(function () {
+		  if ($(this).data("navigate-action") === "toggle-hamburger-left")
+		  {
+		  	 $(this).click(function () {
+		  	 	 if ($("body").hasClass("show-left-hamburger-menu")) {
+		  	 	 	 $("body").removeClass("show-left-hamburger-menu");
+		  	 	 }
+		  	 	 else {
+		  	 	 	 $("body").addClass("show-left-hamburger-menu");
+		  	 	 }
+		  	 });
+		  }	 	 
 	 });
+
+	 //$("#left-hamburger-menu").click(function () {
+	 //	 if ($('body').hasClass('show-left-hamburger-menu')) {
+	 //	 	 $('body').removeClass('show-left-hamburger-menu');
+	 //	  }
+	 //	  else {
+	 //	 	 $('body').addClass('show-left-hamburger-menu');
+	 //	  }
+	 //});
 	 
 	 //window.initializeHomePageControls = function (s, e) {
 	 //	 HomeBanner.Play();
@@ -43,6 +60,6 @@
 
 	 //	 }
 	 //}
-})();
+});
 
 

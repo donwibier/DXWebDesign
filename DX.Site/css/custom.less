@@ -1,5 +1,9 @@
-﻿@navigationTextColor:#fcfcfc;
+﻿@import "mixins.less";
+
+@navigationTextColor:#fcfcfc;
 @navigationBackground: #343434;
+@footerTextColor: #fcfcfc;
+@footerBackground: #808080;
 
 /*.navigation {
 	 padding: 4px 4px 4px 4px;
@@ -16,6 +20,7 @@
 }
 
 /* Logo */
+
 @logoMain: "../images/logo.svg";
 @logoFallback: "../images/logo.png";
 @logoWidth: 228;
@@ -44,7 +49,7 @@
     }
 }
 
-/*Footer on bottom */
+/*Sticky Footer on bottom */
 
 @footerHeight: 50px;
 
@@ -57,26 +62,19 @@ form {
     padding: 0;
     margin: 0;
 }
-.page {
+
+.page{
     min-height: 100%;
     padding-bottom: @footerHeight;
-	 overflow: hidden;	 
-    transition: margin-left 500ms ease;
-}
-
-.content {
-
-    min-height: 100%;
-    height: 100%;
 }
 
 .footer {
-	 background-color: @navigationBackground;
-	 color:@navigationTextColor;
+	 background-color:@footerBackground;
+	 color:@footerTextColor;
+    height: @footerHeight;
     position: absolute;
     width: 100%;
     bottom: 0;
-    height: @footerHeight;
 }
 
 /*Side menu*/
@@ -84,26 +82,45 @@ form {
 .side-menu {
 	 position: absolute;
 	 width: 0;
-	 z-index:10;
+	 z-index:1000;
 	 min-height: 100vh;
-	 height: 100%;
-	 background-color:@navigationBackground;
+	 height: 100%;	 
+	 background-color: @navigationBackground;
 	 overflow:hidden;
     top: 0;
     left: 0;
-    transition: width 500ms ease;
+	 /*transition: width 500ms ease;*/
+	 .transition(width 500ms ease);
+    
+	 
+	 .border-radiuses(8px, 8px, 0, 0);
+	 .drop-shadow(10px, 10px, 5px, 0.25);
+	 
 }
+.side-menu-inner {
+	 color: @navigationTextColor;	
+	 padding: 5px 5px 5px 5px;
+	 a {
+		  color:@navigationTextColor;
+		  text-decoration: none;
+		  &:hover {
+				text-decoration: none;
+		  }
+	 }
 
-.show-menu {
+}
+.show-left-hamburger-menu {
 	 .side-menu {
 		  width: 270px;
 	 }
-	 .page {
-		  margin-left: 280px;
-		  padding-left: 5px;
-		  padding-right:-280px;
-		  overflow:hidden;
-	 }	 
+	 .navigation {
+		  .compact {			
+				.compact-menu-container{
+					 .transition(margin-left 500ms ease);					 
+					 margin-left: 240px; 			
+				}
+		  }
+	 }
 }
 
 .navigation {
@@ -117,11 +134,11 @@ form {
 		  p {
 				font-size:11px;
 				margin-top:5px;
-				margin-bottom: 13px;
-				line-height: 12px;
+				/*margin-bottom: 13px;
+				line-height: 12px;*/
 		  }
 	 }
-	 .compact {
+	 .compact {		  
 		  display:none!important;
 		  .compact-menu-container{
 				float:left; 				
@@ -137,65 +154,59 @@ form {
 		  }
 	 }
 }
+
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/*
-Note: The best way to structure the use of media queries is to create the queries
-near the relevant code. For example, if you wanted to change the styles for buttons
-on small devices, paste the mobile query code up in the buttons section and style it
-there.
-*/
-
 .scaleLogo(@scaleFactor) {
     @scaledLogoWidth: unit(floor(@logoWidth*@scaleFactor), px);
     @scaledLogoHeight: unit(floor(@logoHeight*@scaleFactor), px);
 }
 
-/* Larger than mobile */
-@media (max-width: 749px) {
-	 .navigation {
-		  .normal { display:none!important; }
-		  .compact { display:inline!important; }
-		  
-	 }
-	 .header{
-		  .logo{
-				float:right;
-		  
-				h1.logo a {
-					 .scaleLogo(0.7);
-					 width: @scaledLogoWidth;
-					 height: @scaledLogoHeight;
-					 background-size: @scaledLogoWidth @scaledLogoHeight;
-				
-				}
-		  }
-	 }
-
+/* Larger than phablet (also point when grid becomes active) */
+@media only screen (min-width: 550px) {
 }
 
-/* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 550px) {
+/* Larger than mobile */
+@media (max-width: 549px) {
+	 
+		  .navigation {
+				.normal { display:none!important; }
+				.compact { display:inline!important; }
+		  
+		  }
+		  .header{
+				.logo{
+					 float:right;
+		  
+					 h1.logo a {
+						  .scaleLogo(0.7);
+						  width: @scaledLogoWidth;
+						  height: @scaledLogoHeight;
+						  background-size: @scaledLogoWidth @scaledLogoHeight;
+				
+					 }
+				}
+		  }
+	 
 }
 
 /* Larger than tablet */
-@media (min-width: 750px) {
-	 .navigation {
-		  .normal { display:inline!important; }
-		  .compact { display:none!important; }
-	 }
-	 .page{
-		  padding-bottom: 0;
-	 }
-	 .footer{
-		  display: none;
-	 }
-	 /*.navigation {
-		  display:none;
-	 }*/
-	 .no-mobile {
-		  display: none!important;
-	 }
+@media (min-width: 550px) {
+	 
+		  .navigation {
+				.normal { display:inline!important; }
+				.compact { display:none!important; }
+		  }
+		  /*.content{
+				padding-bottom: 0;
+		  }
+		  .footer{
+				display: inline;
+		  }*/
+		  .no-mobile {
+				display: none!important;
+		  }
+	 
 }
 
 /* Larger than desktop */

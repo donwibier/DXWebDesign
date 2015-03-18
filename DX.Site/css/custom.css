@@ -27,7 +27,7 @@
 .no-svg .header h1.logo a {
   background-image: url("../images/logo.png");
 }
-/*Footer on bottom */
+/*Sticky Footer on bottom */
 html,
 body {
   height: 100%;
@@ -41,42 +41,70 @@ form {
 .page {
   min-height: 100%;
   padding-bottom: 50px;
-  overflow: hidden;
-  transition: margin-left 500ms ease;
-}
-.content {
-  min-height: 100%;
-  height: 100%;
 }
 .footer {
-  background-color: #343434;
+  background-color: #808080;
   color: #fcfcfc;
+  height: 50px;
   position: absolute;
   width: 100%;
   bottom: 0;
-  height: 50px;
 }
 /*Side menu*/
 .side-menu {
   position: absolute;
   width: 0;
-  z-index: 10;
+  z-index: 1000;
   min-height: 100vh;
   height: 100%;
   background-color: #343434;
   overflow: hidden;
   top: 0;
   left: 0;
-  transition: width 500ms ease;
+  /*transition: width 500ms ease;*/
+  -webkit-transition: width 500ms ease;
+  -moz-transition: width 500ms ease;
+  -ms-transition: width 500ms ease;
+  -o-transition: width 500ms ease;
+  -webkit-border-top-right-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 8px;
+  -moz-border-radius-bottomright: 8px;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-shadow: 10px 10px 5px 0.25 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 10px 10px 5px 0.25 rgba(0, 0, 0, 0.25);
+  box-shadow: 10px 10px 5px 0.25 rgba(0, 0, 0, 0.25);
 }
-.show-menu .side-menu {
+.side-menu-inner {
+  color: #fcfcfc;
+  padding: 5px 5px 5px 5px;
+}
+.side-menu-inner a {
+  color: #fcfcfc;
+  text-decoration: none;
+}
+.side-menu-inner a:hover {
+  text-decoration: none;
+}
+.show-left-hamburger-menu .side-menu {
   width: 270px;
 }
-.show-menu .page {
-  margin-left: 280px;
-  padding-left: 5px;
-  padding-right: -280px;
-  overflow: hidden;
+.show-left-hamburger-menu .navigation .compact .compact-menu-container {
+  -webkit-transition: margin-left 500ms ease;
+  -moz-transition: margin-left 500ms ease;
+  -ms-transition: margin-left 500ms ease;
+  -o-transition: margin-left 500ms ease;
+  margin-left: 240px;
 }
 .navigation {
   padding: 4px 4px 4px 4px;
@@ -89,8 +117,8 @@ form {
 .navigation .normal p {
   font-size: 11px;
   margin-top: 5px;
-  margin-bottom: 13px;
-  line-height: 12px;
+  /*margin-bottom: 13px;
+				line-height: 12px;*/
 }
 .navigation .compact {
   display: none!important;
@@ -108,14 +136,9 @@ form {
 }
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/*
-Note: The best way to structure the use of media queries is to create the queries
-near the relevant code. For example, if you wanted to change the styles for buttons
-on small devices, paste the mobile query code up in the buttons section and style it
-there.
-*/
+/* Larger than phablet (also point when grid becomes active) */
 /* Larger than mobile */
-@media (max-width: 749px) {
+@media (max-width: 549px) {
   .navigation .normal {
     display: none!important;
   }
@@ -131,24 +154,20 @@ there.
     background-size: 159px 28px;
   }
 }
-/* Larger than phablet (also point when grid becomes active) */
 /* Larger than tablet */
-@media (min-width: 750px) {
+@media (min-width: 550px) {
   .navigation .normal {
     display: inline!important;
   }
   .navigation .compact {
     display: none!important;
   }
-  .page {
-    padding-bottom: 0;
-  }
-  .footer {
-    display: none;
-  }
-  /*.navigation {
-		  display:none;
-	 }*/
+  /*.content{
+				padding-bottom: 0;
+		  }
+		  .footer{
+				display: inline;
+		  }*/
   .no-mobile {
     display: none!important;
   }
