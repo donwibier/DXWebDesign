@@ -28,9 +28,9 @@
 	 <form id="frm" runat="server">
 		  <div class="side-menu">
 				<div class="side-menu-inner">
-					 <a href="#" data-navigate-action="toggle-hamburger-left">
-						  <span class="icon-circle-left" style="margin-right: 4px"></span>Menu<br />
-					 </a>
+					 <div class="back-container" data-navigate-action="toggle-hamburger-left">
+						  <span class="icon-circle-left" style="margin-right: 4px"></span>Menu
+					 </div>
 				</div>
 		  </div>
 		  <div class="page">

@@ -8,58 +8,50 @@ $(function () {
 		  if ($(this).data("navigate-action") === "toggle-hamburger-left")
 		  {
 		  	 $(this).click(function () {
-		  	 	 if ($("body").hasClass("show-left-hamburger-menu")) {
-		  	 	 	 $("body").removeClass("show-left-hamburger-menu");
-		  	 	 }
-		  	 	 else {
-		  	 	 	 $("body").addClass("show-left-hamburger-menu");
-		  	 	 }
+		  	 	 hamburgerToggle("left");
 		  	 });
-		  }	 	 
+		  }
+		  else if ($(this).data("navigate-action") === "toggle-hamburger-right")
+		  {
+		  	 $(this).click(function () {
+		  	 	 hamburgerToggle("right");
+		  	 });
+		  }
 	 });
 
-	 //$("#left-hamburger-menu").click(function () {
-	 //	 if ($('body').hasClass('show-left-hamburger-menu')) {
-	 //	 	 $('body').removeClass('show-left-hamburger-menu');
-	 //	  }
-	 //	  else {
-	 //	 	 $('body').addClass('show-left-hamburger-menu');
-	 //	  }
-	 //});
+	 $(window).bind('orientationchange resize', function () {
+	 	 if ($(document).width() > 549) {
+	 	 	 hamburgerHide("left");
+	 	 	 hamburgerHide("right");
+	 	 }
+	 });
+
+	 function hamburgerVisible(side) {
+	 	 return ($("body").hasClass("show-" + side + "-hamburger-menu"));
+	 }
+
+	 function hamburgerShow(side) {
+	 	 if (!hamburgerVisible(side)) {
+	 	 	 ($("body").addClass("show-" + side + "-hamburger-menu"));
+	 	 }
+	 }
+
+	 function hamburgerHide(side) {
+	 	 if (hamburgerVisible(side)) {
+	 	 	 ($("body").removeClass("show-" + side + "-hamburger-menu"));
+	 	 }
+	 }
+
+	 function hamburgerToggle(side) {
+	 	 if (!hamburgerVisible(side)) {
+	 	 	 hamburgerHide(side == "left" ? "right" : "left");
+	 	 	 hamburgerShow(side);
+	 	 }
+	 	 else {
+	 	 	 hamburgerHide(side);
+	 	 }
+	 }
 	 
-	 //window.initializeHomePageControls = function (s, e) {
-	 //	 HomeBanner.Play();
-	 //	 alignHomePageWidgets();
-	 //};
-
-	 ////resize the slider proportional	 
-	 //window.initializeHomeBanner = function (s, e) {
-	 //	 $(window).bind('orientationchange resize', function () {
-	 //	 	 alignHomepageSlider(s)
-	 //	 })
-	 //};
-
-	 //window.alignHomepageSlider = function (s) {
-	 //	 //height = 320; width = 960;
-	 //	 if (typeof s !== 'undefined') {
-	 //	 	 s.SetHeight(Math.floor(320 * $('#heading').width() / 960));
-	 //	 }
-	 //};
-
-	 //window.onMenuNavButtonCheckedChanged = function (s, e) {
-	 //	 var checked = s.GetChecked();
-	 //	 if (checked) {
-	 //	 	 if (typeof HomeBanner !== 'undefined')
-	 //	 	 	 HomeBanner.Pause();
-	 //	 	 $('body').addClass('show-menu');
-	 //	 }
-	 //	 else {
-	 //	 	 $('body').removeClass('show-menu');
-	 //	 	 if (typeof HomeBanner !== 'undefined')
-	 //	 	 	 HomeBanner.Play();
-
-	 //	 }
-	 //}
 });
 
 
